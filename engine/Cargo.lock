@@ -1,0 +1,33 @@
+[[package]]
+name = "engine"
+version = "0.1.0"
+dependencies = [
+ "libvirt 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "libc"
+version = "0.1.12"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "libvirt"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "libc 0.1.12 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libvirt-sys 1.2.18 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "libvirt-sys"
+version = "1.2.18"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "libc 0.1.12 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[metadata]
+"checksum libc 0.1.12 (registry+https://github.com/rust-lang/crates.io-index)" = "e32a70cf75e5846d53a673923498228bbec6a8624708a9ea5645f075d6276122"
+"checksum libvirt 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "a70629b79a51ea935e7f1273911bbe685c3157074b78c01599144eae0a94332b"
+"checksum libvirt-sys 1.2.18 (registry+https://github.com/rust-lang/crates.io-index)" = "83c6e74fe8d35394aa0075628b8a7f2926e823528450e7d82f73303e7f5ad3eb"
