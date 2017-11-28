@@ -1,5 +1,8 @@
 extern crate libvirt;
+extern crate interfaces;
+
 use libvirt::connection::*;
+use interfaces::{Interface};
 
 fn main() {
     let conn: Connection = match Connection::new("qemu:///system".to_string(), ConnectionType::OPEN) {
@@ -20,4 +23,18 @@ fn main() {
         Ok(()) => println!("Disconnected from hypervisor"),
         Err(e) => panic!("Failed to disconnect from hypervisor: {}", e.message)
     };
+    let ifname = "virbr0";
+    let mut i = match Interface::get_by_name(ifname) {
+        Ok(Some(i)) => i,
+        Ok(None) => {
+            println!("Could not find an interface named: {}", ifname);
+            return;
+        },
+        Err(e) => {
+            println!("An error occured fetching interfaces: {:?}", e);
+            return;
+        },
+    };
+
+    println!("Interface {} was {}", i.name, if i.is_up() { "up" } else { "down" });
  }

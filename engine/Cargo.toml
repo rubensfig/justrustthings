@@ -4,4 +4,5 @@ version = "0.1.0"
 authors = ["rubensfig <r.figueiredo.52@gmail.com>"]
 
 [dependencies]
+interfaces = "0.0.3"
 libvirt = "0.1.0"
